@@ -186,31 +186,28 @@
 document.addEventListener("DOMContentLoaded", function () {
     const toggle = document.getElementById("searchToggle");
     const input = document.getElementById("globalSearch");
-    const products = document.querySelectorAll(".product"); // all products
+    const products = document.querySelectorAll(".product"); 
 
     if (!toggle || !input) return;
 
-    // Toggle search input visibility
     toggle.addEventListener("click", () => {
         input.classList.toggle("active");
         input.focus();
     });
 
-    // Filter products in real-time
     input.addEventListener("input", () => {
         const value = input.value.toLowerCase().trim();
 
         products.forEach(product => {
             const name = product.querySelector(".p-name").textContent.toLowerCase();
             if (name.includes(value)) {
-                product.style.display = "flex"; // show matched products
+                product.style.display = "flex"; 
             } else {
-                product.style.display = "none"; // hide unmatched
+                product.style.display = "none"; 
             }
         });
     });
 
-    // Optional: press Enter to go to shop page with search
     input.addEventListener("keydown", e => {
         if (e.key === "Enter") {
             const value = input.value.trim();
@@ -221,7 +218,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Hide input if clicked outside
     document.addEventListener("click", e => {
         if (!toggle.contains(e.target) && !input.contains(e.target)) {
             input.classList.remove("active");
@@ -238,3 +234,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 </html>    
+
